@@ -1,0 +1,18 @@
+[submodule "third-party/jsonrpc/jsonrpc"]
+	path = third-party/jsonrpc/jsonrpc
+	url = https://github.com/flexibity-team/jsonrpc.git
+	branch = master
+[submodule "third-party/websocketpp"]
+	path = third-party/websocketpp
+	url = https://github.com/flexibity-team/websocketpp.git
+	branch = permessage-deflate
+[submodule "third-party/HighLatencyGPIO"]
+	path = third-party/HighLatencyGPIO
+	url = https://github.com/romansavrulin/HighLatencyGPIO.git
+[submodule "third-party/pybind11"]
+	path = third-party/pybind11
+	url = ../pybind11
+	branch = v2.2
+[submodule "third-party/libmodbus"]
+	path = third-party/libmodbus
+	url = https://github.com/Flexibity/libmodbus.git
