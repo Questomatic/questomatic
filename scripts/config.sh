@@ -1,11 +1,6 @@
 
 SOURCE_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
-if [[ $EUID -eq 0 ]]; then
-	echo -e "\e[31mThis script must not be included as root\e[0m"
-	#exit 1
-fi
-
 LAUNCH_USER_ID=`id -u`
 LAUNCH_USER_GID=`id -g`
 

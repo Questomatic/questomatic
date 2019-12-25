@@ -1,7 +1,8 @@
 FROM ubuntu:18.04
 
 RUN apt update 
-RUN apt install -y debootstrap cmake make build-essential binutils-arm-linux-gnueabihf
+RUN apt install -y debootstrap cmake make build-essential binutils-arm-linux-gnueabihf \
+gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
 RUN apt install -y debootstrap qemu-user-static
 
 ENV SYSROOT=/sysroot
@@ -12,6 +13,6 @@ RUN apt-get clean
 
 RUN mkdir /build
 WORKDIR /build
-COPY . /build
+#COPY . /build
 
 
