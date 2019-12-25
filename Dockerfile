@@ -2,8 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt update 
 RUN apt install -y debootstrap cmake make build-essential binutils-arm-linux-gnueabihf \
-gcc-arm-linux-gnueabihf g++-arm-linux-gnueabihf
-RUN apt install -y debootstrap qemu-user-static
+gcc-6-arm-linux-gnueabihf g++-6-arm-linux-gnueabihf python2.7 debootstrap qemu-user-static
 
 ENV SYSROOT=/sysroot
 RUN mkdir ${SYSROOT}

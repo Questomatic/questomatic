@@ -3,15 +3,16 @@ SET(CMAKE_SYSTEM_NAME Linux)
 SET(CMAKE_SYSTEM_VERSION 1)
 
 # specify the cross compiler
-SET(CMAKE_C_COMPILER arm-linux-gnueabihf-gcc)
-SET(CMAKE_CXX_COMPILER arm-linux-gnueabihf-g++)
+SET(CMAKE_C_COMPILER "${TCPREFIX}-gcc-${TCVERSION}")
+SET(CMAKE_CXX_COMPILER "${TCPREFIX}-g++-${TCVERSION}")
 
 # where is the target environment 
 SET(CMAKE_FIND_ROOT_PATH  "${SYSROOT}")
 
-#SET(SYSROOT_PATH /box3_nfsboot/buildfs/)
+SET(SYSROOT_PATH "${SYSROOT}")
+SET(CMAKE_SYSROOT "${SYSROOT}")
 
-set(CMAKE_LIBRARY_ARCHITECTURE arm-linux-gnueabihf)
+#set(CMAKE_LIBRARY_ARCHITECTURE arm-linux-gnueabihf)
 
 set(CMAKE_EXE_LINKER_FLAGS "--sysroot=\"${SYSROOT}\"")
 set(CMAKE_MODULE_LINKER_FLAGS "--sysroot=\"${SYSROOT}\"")

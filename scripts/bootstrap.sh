@@ -86,6 +86,7 @@ fi
 
 if [ ! -z "$SYSROOT" ]
 then
+    echo "Bootstrapping for cross-compile"
     cmake -DCMAKE_TOOLCHAIN_FILE=toolchain.cmake -DTRGT=arm -DTCPREFIX="arm-linux-gnueabihf" -DTCVERSION="6" -DSYSROOT="$SYSROOT" "$DEBUG_ARG" $@ ..
 else
     cmake "$DEBUG_ARG" CMakelists.txt $@ ..

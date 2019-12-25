@@ -18,7 +18,7 @@ KERNEL_INSTALL_DIR="$KERNEL_OUT_DIR/install"
 KERNEL_OWNER_UID=0
 KERNEL_OWNER_GID=0
 
-#sysroot. if you want to manually build for old rootfs, checkout git@gitlab.flexibity.com:box3-4.x/box3-debian-sysroot.git to the same directory as tigerlash
+#sysroot. if you want to manually build for old rootfs, checkout git@gitlab.flexibity.com:box3-4.x/box3-debian-sysroot.git to the same directory
 SYSROOT_DIR="$SOURCE_DIR/../../box3-debian-sysroot/"
 
 #image
@@ -27,18 +27,11 @@ IMAGE_DEF_SIZE=350
 #rootfs
 ROOTFS_DIR="$SOURCE_DIR/../rootfs/rootfs-skel"
 
-#tigerlash
-TIGERLASH_OUT_DIR="$SOURCE_DIR/../out/tigerlash"
+#build artifact
+TIGERLASH_OUT_DIR="$SOURCE_DIR/../out/questomatic"
 TIGERLASH_OWNER_UID=1000
 TIGERLASH_OWNER_GID=100
 
-#mfg
-MFG_OUT_DIR="$SOURCE_DIR/../out/mfg"
-MFG_NFS_DIR="/box3-mfg/"
-
-#keylogger
-KEYLOGGER_FW_DIR="$SOURCE_DIR/../keylogger/bin"
-
-#dev
+#
 DEV_NFS_IP="192.168.1.10"
 DEV_NFS_DIR=~/"nfs/rootfs-dev/"

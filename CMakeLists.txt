@@ -1,13 +1,12 @@
 cmake_minimum_required(VERSION 2.6)
-project(TEST)
+project(Questomatic)
 
 #add_definitions( -DBOOST_ALL_NO_LIB )
 SET(TRGT "0" CACHE STRING "???")
-SET(TCPREFIX "0" CACHE STRING "???")
-SET(TCVERSION "0" CACHE STRING "???")
-SET(SYSROOT "0" CACHE STRING "???")
+SET(TCPREFIX "" CACHE STRING "???")
+SET(TCVERSION "" CACHE STRING "???")
+SET(SYSROOT "" CACHE STRING "???")
 SET(BUILD_ID "Fixme!!!" CACHE STRING "???")
-SET(TIGERLASH_INSTALL "../opt/tigerlash")
 
 add_definitions(-DBUILD_ID=${BUILD_ID}) #bash ${CMAKE_SOURCE_DIR}/scripts/gen-image-id.sh -e -s`)
 
@@ -25,25 +24,6 @@ else()
     SET(target "target=${TRGT}")
     add_definitions(-DBUILD_TARGET)
 endif()
-
-if ("${TCPREFIX}" MATCHES "0")
-    SET(tcprefix "")
-else()
-    SET(tcprefix "tcprefix=${TCPREFIX}")
-endif()
-
-if ("${TCVERSION}" MATCHES "0")
-    SET(tcversion "")
-else()
-    SET(tcversion "tcversion=${TCVERSION}")
-endif()
-
-if ("${SYSROOT}" MATCHES "0")
-    SET(sysroot "")
-else()
-    SET(sysroot "sysroot=${SYSROOT}")
-endif()
-
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
@@ -121,6 +101,9 @@ add_subdirectory(third-party/pybind11)
 add_executable(15_pybind 15_pybind/main.cpp)
 target_link_libraries(15_pybind pybind11::embed ${Jsoncpp_LIBRARY} ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${EXTRA_LIBS})
 
+add_executable(24_websocket_srv 24_websocket_srv/main.cpp)
+target_link_libraries(24_websocket_srv ${Jsoncpp_LIBRARY} ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${EXTRA_LIBS})
+
 add_library(jsonrpc STATIC ${JSONRPC})
 
 set(EXTRA_LIBS jsonrpc rt z stdc++)
@@ -132,12 +115,3 @@ set(ORANGE_SRCS ${ORANGE_SRCS} "${GPIO_HL_DIR}/GPIO.cc")
 
 add_executable(orange_quest ${JSONRPC} ${ORANGE_SRCS} ${INC_HPP} ${INC_H} )
 target_link_libraries(orange_quest ${Jsoncpp_LIBRARY} ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${EXTRA_LIBS} pybind11::embed modbus)
-
-install(FILES scripts/rootfs-updater-stage0.sh scripts/rootfs-updater-stage1.sh
-    DESTINATION ${TIGERLASH_INSTALL}
-    PERMISSIONS OWNER_READ OWNER_EXECUTE
-)
-
-install(FILES configs/tigerlash.json ${KEYLOGGER_PATH}
-    DESTINATION ${TIGERLASH_INSTALL}
-)
