@@ -45,7 +45,7 @@ fi
 mkdir -p "${OUT_DIR}"
 cd "$OUT_DIR/.."
 
-make -j$(nproc) orange_quest 24_websocket_srv
+make -j$(nproc) questomatic 24_websocket_srv
 
 ARTIFACT_FULL_NAME=${OUT_DIR}
 
@@ -55,7 +55,7 @@ rm -rf "$ARTIFACT_FULL_NAME"
 mkdir -p "$ARTIFACT_FULL_NAME"
 cd "$SOURCE_DIR/.."
 
-cp -a "$OUT_DIR/../bin/orange_quest" "$OUT_DIR/../bin/24_websocket_srv" "$ARTIFACT_FULL_NAME"
+cp -a "$OUT_DIR/../bin/questomatic" "$OUT_DIR/../bin/24_websocket_srv" "$ARTIFACT_FULL_NAME"
 
 
 if [ ! -z "$ARCHIVE_TL" ]; then

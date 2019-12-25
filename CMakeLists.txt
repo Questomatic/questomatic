@@ -108,10 +108,10 @@ add_library(jsonrpc STATIC ${JSONRPC})
 
 set(EXTRA_LIBS jsonrpc rt z stdc++)
 
-set(ORANGE_SRCS orange_controller/main.cpp)
-set(ORANGE_SRCS ${ORANGE_SRCS} orange_controller/modbus.cpp)
+set(QUESTOMATIC_SRCS questomatic/main.cpp)
+set(QUESTOMATIC_SRCS ${QUESTOMATIC_SRCS} questomatic/modbus.cpp)
 set(GPIO_HL_DIR "${PROJECT_SOURCE_DIR}/third-party/HighLatencyGPIO")
-set(ORANGE_SRCS ${ORANGE_SRCS} "${GPIO_HL_DIR}/GPIO.cc")
+set(QUESTOMATIC_SRCS ${QUESTOMATIC_SRCS} "${GPIO_HL_DIR}/GPIO.cc")
 
-add_executable(orange_quest ${JSONRPC} ${ORANGE_SRCS} ${INC_HPP} ${INC_H} )
-target_link_libraries(orange_quest ${Jsoncpp_LIBRARY} ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${EXTRA_LIBS} pybind11::embed modbus)
+add_executable(questomatic ${JSONRPC} ${QUESTOMATIC_SRCS} ${INC_HPP} ${INC_H} )
+target_link_libraries(questomatic ${Jsoncpp_LIBRARY} ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${EXTRA_LIBS} pybind11::embed modbus)
