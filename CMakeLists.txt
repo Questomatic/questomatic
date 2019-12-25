@@ -93,7 +93,10 @@ include_directories(${Boost_INCLUDE_DIRS})
 
 FILE(GLOB_RECURSE INC_HPP "${PROJECT_SOURCE_DIR}/include/*.hpp")
 FILE(GLOB_RECURSE INC_H "${PROJECT_SOURCE_DIR}/include/*.h")
-include_directories(${PROJECT_SOURCE_DIR}/include ${PROJECT_SOURCE_DIR}/third-party/jsonrpc/jsonrpc/src/main ${PROJECT_SOURCE_DIR}/third-party/jsonrpc/jsonrpc/src/main/include ${PROJECT_SOURCE_DIR}/third-party/ZBar/include ${PROJECT_SOURCE_DIR}/third-party/ZBar/zbar ${PROJECT_SOURCE_DIR}/third-party/quirc/lib ${PROJECT_SOURCE_DIR}/third-party/HighLatencyGPIO)
+include_directories(${PROJECT_SOURCE_DIR}/include
+${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main
+${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/include
+${PROJECT_SOURCE_DIR}/third-party/HighLatencyGPIO)
 link_directories ("${PROJECT_SOURCE_DIR}/lib")
 
 if(Jsoncpp_FOUND)
@@ -106,13 +109,13 @@ else(Jsoncpp_FOUND)
 endif(Jsoncpp_FOUND)
 
 add_definitions("-DJSONRPC_API=__attribute__((visibility (\"default\")))")
-set(JSONRPC "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/jsonrpc/src/main/cpp/jsonreader.cpp")
-set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/jsonrpc/src/main/cpp/jsonrpc.cpp")
-set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/jsonrpc/src/main/cpp/jsonrpccallback.cpp")
-set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/jsonrpc/src/main/cpp/jsonrpcexception.cpp")
-set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/jsonrpc/src/main/cpp/jsonrpcmethod.cpp")
-set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/jsonrpc/src/main/cpp/jsonrpcprivate.cpp")
-set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/jsonrpc/src/main/cpp/jsonrpcstream.cpp")
+set(JSONRPC "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/cpp/jsonreader.cpp")
+set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/cpp/jsonrpc.cpp")
+set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/cpp/jsonrpccallback.cpp")
+set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/cpp/jsonrpcexception.cpp")
+set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/cpp/jsonrpcmethod.cpp")
+set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/cpp/jsonrpcprivate.cpp")
+set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/cpp/jsonrpcstream.cpp")
 
 add_subdirectory(third-party/pybind11)
 add_executable(15_pybind 15_pybind/main.cpp)
