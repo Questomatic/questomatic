@@ -11,6 +11,8 @@ before_install:
 
 script:
   - set -e
-  - if [[ "$TRAVIS_COMMIT_MESSAGE" == *"trigger build-env"* ]]; then ./scripts/build-docker.sh $BUILD_IMAGE_URI
+  - if [[ "$TRAVIS_COMMIT_MESSAGE" == *"trigger build-env"* ]]; then 
+      ./scripts/build-docker.sh $BUILD_IMAGE_URI
       if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]]; then docker push $BUILD_IMAGE_URI; fi
     fi
+  - echo build done!
