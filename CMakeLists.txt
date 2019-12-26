@@ -98,11 +98,6 @@ set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/cpp/j
 set(JSONRPC ${JSONRPC} "${PROJECT_SOURCE_DIR}/third-party/jsonrpc/src/main/cpp/jsonrpcstream.cpp")
 
 add_subdirectory(third-party/pybind11)
-add_executable(15_pybind 15_pybind/main.cpp)
-target_link_libraries(15_pybind pybind11::embed ${Jsoncpp_LIBRARY} ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${EXTRA_LIBS})
-
-add_executable(24_websocket_srv 24_websocket_srv/main.cpp)
-target_link_libraries(24_websocket_srv ${Jsoncpp_LIBRARY} ${Boost_LIBRARIES} ${OPENSSL_LIBRARIES} ${EXTRA_LIBS})
 
 add_library(jsonrpc STATIC ${JSONRPC})
 
