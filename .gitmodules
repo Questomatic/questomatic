@@ -1,16 +1,16 @@
 [submodule "third-party/jsonrpc"]
 	path = third-party/jsonrpc
-	url = https://github.com/flexibity-team/jsonrpc.git
+	url = ../jsonrpc.git
 [submodule "third-party/websocketpp"]
 	path = third-party/websocketpp
-	url = https://github.com/flexibity-team/websocketpp.git
+	url = ../websocketpp.git
 [submodule "third-party/HighLatencyGPIO"]
 	path = third-party/HighLatencyGPIO
-	url = https://github.com/romansavrulin/HighLatencyGPIO.git
+	url = ../HighLatencyGPIO.git
 [submodule "third-party/libmodbus"]
 	path = third-party/libmodbus
-	url = https://github.com/Flexibity/libmodbus.git
+	url = ../libmodbus.git
 [submodule "third-party/pybind11"]
 	path = third-party/pybind11
-	url = git@gitlab.com:flexibity-com/quest-automation/pybind11.git
+	url = ../pybind11.git
 	branch = v2.2.3

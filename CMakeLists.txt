@@ -27,7 +27,7 @@ endif()
 
 set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/")
 
-INCLUDE(${CMAKE_SOURCE_DIR}/CMakeLists.config)
+INCLUDE(${CMAKE_SOURCE_DIR}/cmake/CMakeLists.config)
 include_directories(${CMAKE_SOURCE_DIR}/include)
 
 if(UNIX)
