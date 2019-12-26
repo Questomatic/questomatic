@@ -16,4 +16,4 @@
 	branch = v2.2.3
 [submodule "third-party/boost-tools"]
 	path = third-party/boost-tools
-	url = https://github.com/flexibity-team/boost-tools.git
+	url = ../boost-tools.git
