@@ -1,8 +1,9 @@
 FROM ubuntu:18.04
 
+RUN dpkg --add-architecture i386
 RUN apt update 
-RUN apt install -y debootstrap cmake make build-essential binutils-arm-linux-gnueabihf \
-gcc-6-arm-linux-gnueabihf g++-6-arm-linux-gnueabihf python2.7 debootstrap qemu-user-static
+RUN apt install -y debootstrap python2.7:i386 cmake make build-essential binutils-arm-linux-gnueabihf \
+gcc-6-arm-linux-gnueabihf g++-6-arm-linux-gnueabihf debootstrap qemu-user-static
 
 ENV SYSROOT=/sysroot
 RUN mkdir ${SYSROOT}
