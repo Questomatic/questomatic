@@ -10,7 +10,7 @@ services:
 
 before_install:
   - docker login docker.pkg.github.com -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
-  - echo Starting to build image to  $BUILD_IMAGE_URI
+  - echo Starting to build image to $BUILD_IMAGE_URI
 
 script:
   - set -e

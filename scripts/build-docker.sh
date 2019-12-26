@@ -7,7 +7,7 @@ cd $SOURCE_DIR/../
 echo Building image $IMAGE_NAME ....
 docker run --privileged linuxkit/binfmt:v0.6
 
-docker build -t questomatic:latest .
+docker build -t $IMAGE_NAME .
 
 echo Running debootstrap second stage ...
 docker run --privileged -it $IMAGE_NAME /bin/sh -c 'chroot /sysroot /debootstrap/debootstrap --second-stage'
